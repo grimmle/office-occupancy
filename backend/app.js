@@ -6,7 +6,8 @@ const Logger = require("morgan");
 const Mongoose = require("mongoose");
 const Cors = require("cors");
 
-const DATABASE_NAME = "Raumbelegung";
+const DATABASE_NAME = "occupation";
+const PORT = process.env.PORT || 5000;
 
 const route_workplaces = require("./routes/workplaces.js");
 const route_employees = require("./routes/employees.js");
@@ -32,10 +33,17 @@ app.use(Logger('dev'));
 app.use("/workplaces", route_workplaces);
 app.use("/employees", route_employees);
 
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static("backend/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "backend", "build", "index.html"));
+  });
+}
 
 // START SERVER
-app.listen(5000, () => {
-  Mongoose.connect("mongodb://localhost:27017", function(err, db) {
+app.listen(PORT, () => {
+  Mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017", function(err, db) {
     if(!err) console.log("Connection successful!")
     else throw err
   })
