@@ -46,7 +46,7 @@ Mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017", { useNe
 
 // START SERVER
 app.listen(PORT, () => {
-  console.log("Server starting at PORT: ${PORT}");
+  console.log("Server starting at PORT: " + PORT);
 });
 
 Mongoose.connection.on("connected", function() {
