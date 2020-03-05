@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -19,8 +19,9 @@
     "start": "node app.js",
     "backend": "nodemon app.js",
     "test": "mocha",
-    "frontend": "cd ../frontend && npm run start",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+    "frontend": "cd /frontend && npm run start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "heroku-postbuild": "cd frontend && npm install & npm run build"
   },
   "author": "Lennard Grimm",
   "license": "ISC"
