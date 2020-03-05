@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mocha": "^6.1.4",
+    "moment": "^2.24.0",
+    "mongodb": "^3.2.6",
+    "mongoose": "^5.5.11",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "backend": "nodemon app.js",
+    "test": "mocha",
+    "frontend": "cd ../frontend && npm run start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "author": "Lennard Grimm",
+  "license": "ISC"
+}
