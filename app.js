@@ -34,7 +34,7 @@ app.use("/workplaces", route_workplaces);
 app.use("/employees", route_employees);
 
 if(process.env.NODE_ENV === "production") {
-  app.use(express.static("backend/build"));
+  app.use(Express.static("frontend/build"));
 
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "backend", "build", "index.html"));
