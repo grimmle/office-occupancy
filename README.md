@@ -1,5 +1,5 @@
-# BWB - Raumplaner IT
-Autor: Lennard Grimm
+# Office Occupation Tool
+Author: Lennard Grimm
 
 
 ## 1. Technologien
