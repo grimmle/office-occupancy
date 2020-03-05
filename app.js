@@ -5,6 +5,7 @@ const ObjectID = require("mongodb").ObjectID;
 const Logger = require("morgan");
 const Mongoose = require("mongoose");
 const Cors = require("cors");
+const path = require("path");
 
 const DATABASE_NAME = "occupation";
 const PORT = process.env.PORT || 5000;
@@ -37,7 +38,7 @@ if(process.env.NODE_ENV === "production") {
   app.use(Express.static("frontend/build"));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "backend", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
   });
 }
 

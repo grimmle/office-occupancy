@@ -21,7 +21,7 @@
     "test": "mocha",
     "frontend": "cd /frontend && npm run start",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "heroku-postbuild": "cd frontend && npm install & npm run build"
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "author": "Lennard Grimm",
   "license": "ISC"
