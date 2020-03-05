@@ -42,12 +42,11 @@ if(process.env.NODE_ENV === "production") {
   });
 }
 
+Mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017", { useNewUrlParser: true });
+
 // START SERVER
 app.listen(PORT, () => {
-  Mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017", function(err, db) {
-    if(!err) console.log("Connection successful!")
-    else throw err
-  })
+  console.log("Server starting at PORT: ${PORT}");
 });
 
 Mongoose.connection.on("connected", function() {
