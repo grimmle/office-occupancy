@@ -7,7 +7,7 @@ const Mongoose = require("mongoose");
 const Cors = require("cors");
 const path = require("path");
 
-const DATABASE_NAME = "occupation";
+//const DATABASE_NAME = "occupation";
 const PORT = process.env.PORT || 5000;
 
 const route_workplaces = require("./routes/workplaces.js");
@@ -50,7 +50,7 @@ app.listen(PORT, () => {
 });
 
 Mongoose.connection.on("connected", function() {
-  console.log("Connected to '" + DATABASE_NAME + "'!");
+  console.log("Connected to database!");
 });
 
 Mongoose.connection.on("error", function(err) {

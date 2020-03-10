@@ -29,7 +29,7 @@ export default class NewReservationModal extends React.Component {
       startDate: moment.utc(this.props.startDate).format(),
       endDate: moment.utc(this.props.endDate).format(),
       // employee still hardcoded, implementation of employee database required
-      employee: "5cfa6d37b170730a1ad5fc97",
+      employee: "5ce683d41c9d4400002444b2",
       note: this.state.note
     })
     .then(res => {
