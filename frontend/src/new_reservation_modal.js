@@ -4,14 +4,14 @@ import axios from 'axios';
 
 import './style.css';
 
-const URL = "http://localhost:5000/workplaces"
+const URL = "https://office-occupancy.herokuapp.com/workplaces"
 
 export default class NewReservationModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = { note: "" }
     this.handleChange = this.handleChange.bind(this);
-    this.postNewReservation = this.postNewReservation.bind(this);
+    this.postNewReservation = this.postNewResersvation.bind(this);
   }
 
   // updated note text
