@@ -11,7 +11,7 @@ export default class NewReservationModal extends React.Component {
     super(props);
     this.state = { note: "" }
     this.handleChange = this.handleChange.bind(this);
-    this.postNewReservation = this.postNewResersvation.bind(this);
+    this.postNewReservation = this.postNewReservation.bind(this);
   }
 
   // updated note text
