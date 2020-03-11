@@ -1,3 +1,5 @@
+const config = require("./config.json");
+
 const Express = require("express");
 const BodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
@@ -7,19 +9,12 @@ const Mongoose = require("mongoose");
 const Cors = require("cors");
 const path = require("path");
 
-//const DATABASE_NAME = "occupation";
 const PORT = process.env.PORT || 5000;
 
 const route_workplaces = require("./routes/workplaces.js");
 const route_employees = require("./routes/employees.js");
 
 var app = Express();
-
-// app.use(function(req,res) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
-//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-// })
 
 app.use(Cors());
 
@@ -42,7 +37,7 @@ if(process.env.NODE_ENV === "production") {
   });
 }
 
-Mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:inMnDl8YFGKU0XKQ@cluster0-caapu.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
+Mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:" + config.mongopw + "@cluster0-caapu.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 // START SERVER
 app.listen(PORT, () => {
@@ -54,7 +49,7 @@ Mongoose.connection.on("connected", function() {
 });
 
 Mongoose.connection.on("error", function(err) {
-  console.log("Mongoose error "+err+" has occured.");
+  console.log("Mongoose error " + err + " has occured.");
 });
 
 Mongoose.connection.on("disconnected", function() {
