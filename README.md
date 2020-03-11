@@ -1,4 +1,4 @@
-# Office Occupation Tool
+# Office Occupancy Tool
 Author: Lennard Grimm
 
 
