@@ -4,7 +4,8 @@ import axios from 'axios';
 
 import './style.css';
 
-const URL = window.location.origin + "/workplaces";
+//const URL = "https://office-occupancy.herokuapp.com/workplaces"
+const URL = "http://localhost:5000/workplaces"
 
 export default class NewReservationModal extends React.Component {
   constructor(props) {

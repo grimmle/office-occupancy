@@ -1,59 +1,87 @@
-/*
-FARBEN
-#34b3a0
-#6400e4
-#fc4472
+* {
+  box-sizing: border-box;
+}
 
-#0072c6
-rgb(229, 238, 250)
-*/
+h1 {
+  font-size: calc(1.2rem + 1vw);
+}
 
-h1{
-  font-size: calc(1.2rem + 1vw)
+h2 {
+  font-size: calc(1rem + 1vw);
 }
-h2{
-  font-size: calc(1rem + 1vw)
+
+h3 {
+  font-size: calc(0.8rem + 1vw);
 }
-h3{
-  font-size: calc(0.8rem + 1vw)
+
+p, label, td, th {
+  font-size: calc(0.5rem + 0.5vw);
 }
-p, label, td, th{
-  font-size: calc(0.5rem + 0.5vw)
+
+html, body {
+  overflow-x: hidden;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 #app {
-  max-width: 2200px;
-  margin:auto;
+  margin: auto;
+  max-width: 1200px;
 }
 
-#header{
-  background-color: #0072c6;
+#header {
+  margin: 0 -995rem;
+  padding: 0 999rem;
+  background-color: #6400e4;
   height: calc(60px + 1vw);
   overflow: hidden;
-  padding: 10px calc(8rem + 3vw);
-  display:flex;
-  align-items: center;
-}
-
-#header h1{
-  color: white;
-  margin:0;
-  padding:0;
-}
-
-.header-right{
-  float:right;
-  margin-left:auto;
-  display:flex;
-  align-items: center;
-}
-
-.header-right form{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#header h1 {
+  color: white;
+  margin: 0;
+  padding: 0;
+  width: 34%;
+}
+#header form {
+  display: flex;
+}
+#header form button {
+  background-color: lightgrey;
+  padding: 1px 5px;
+  border: none;
+  font-size: 1.3rem;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  line-height: 2rem;
+  cursor: pointer;
+}
+#header form button:hover {
+  background-color: darkgrey;
+}
+#header form button:active {
+  color: white;
+}
+
+#header > button {
+  margin-left: 50px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  color: white;
+}
+
+#header > button:hover {
+  color: lightgrey;
 }
 
 .searchBar {
-  width: 15vw;
+  width: 100%;
   background-color: white;
   border: none;
   font-size: 1rem;
@@ -61,61 +89,37 @@ p, label, td, th{
   border-bottom-left-radius: 5px;
   line-height: 2rem;
   padding-left: 5px;
-  padding-right: 5px
-}
-
-/*search button*/
-.header-right form button{
-  background-color: lightgrey;
-  padding: 1px 5px;
-  border: none;
-  font-size: 1.3rem;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  margin-right: 40px;
-  line-height: 2rem;
-  cursor: pointer;
-}
-
-.header-right form button:active{
-  color: white;
-}
-
-.header-right>button{
-  margin-left: 50px;
-  padding:0;
-  border: none;
-  background-color: transparent;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-}
-
-.header-right>button:hover{
-  color:lightgrey;
+  padding-right: 5px;
 }
 
 #filterBar {
-  height: calc(25px + 1vw);
-  background-color: #d3d3d3;
-  padding: 20px calc(8rem + 3vw);
-  font-variant: small-caps;
+  height: calc(40px + 1vw);
+  background-color: white;
+  margin: 0 -995rem;
+  padding: 10px 999rem;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.8);
+}
+#filterBar > div {
+  width: 50%;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-  overflow: hidden;
+  justify-content: space-between;
 }
-
-#filterBar>h3{
+#filterBar h3 {
   margin: 0 20px 0 0;
 }
-
-#filterBar label{
+#filterBar label {
   margin: 0;
+  font-variant: small-caps;
+}
+#filterBar div {
+  padding-right: 10px;
 }
 
-#filterBar div{
-  padding-right: 10px
+input[type=checkbox] {
+  border: 1px solid black;
+  border-radius: 0px;
 }
 
 .reset {
@@ -124,11 +128,11 @@ p, label, td, th{
   color: black;
   cursor: pointer;
   border-radius: 5px;
-  float: right
+  float: right;
 }
 
-.bm-menu{
-  background: #0072c6;
+.bm-menu {
+  background: #6400e4;
   font-size: 1.2rem;
   padding: 2.5rem 1.5rem 0;
 }
@@ -136,35 +140,29 @@ p, label, td, th{
 .bm-item {
   color: white;
   text-align: center;
-  padding: 0.8rem 0;
+  padding: 1.8rem 0;
 }
-
 .bm-item:hover {
   color: lightgrey;
   text-decoration: none;
 }
 
-.bm-overlay{
+.bm-overlay {
   background: transparent;
-}
-
-.todayButton{
-  background-color: white;
-  border:solid 2px black;
-  border-radius: 5px;
-  padding: 7px 15px;
+  margin: 0 -50rem;
+  width: 200% !important;
 }
 
 .workplace-list {
   margin: auto;
-  padding: 10px calc(8rem + 3vw);
+  padding: 10px;
   padding-bottom: 20px;
-  overflow: hidden
+  overflow: hidden;
 }
 
 table {
   border-collapse: collapse;
-  width: 100%
+  width: 100%;
 }
 
 th {
@@ -185,24 +183,24 @@ tr:hover {
 }
 
 .workplace-reserved {
-  border-left: 6px solid red;
+  border-left: 6px solid #e46400;
 }
 
 .workplace-unreserved {
-  border-left: 6px solid green;
+  border-left: 6px solid #00e464;
 }
 
 #workplace-selected {
   background-color: #ededed;
 }
 
-.button-container{
+.button-container {
   position: fixed;
   left: calc(90vw);
   top: 85%;
 }
 
-.plus-button{
+.plus-button {
   width: 70px;
   height: 70px;
   font-size: 3rem;
@@ -212,36 +210,36 @@ tr:hover {
   display: inline-block;
   line-height: 100%;
   color: white;
-  background-color: #0072c6;
+  background-color: #6400e4;
 }
 
-.plus-button::before{
+.plus-button::before {
   margin: auto;
   font-size: 5.5rem;
-  content: "+"
+  content: "+";
 }
 
 .plus-button:enabled:hover {
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
-  background-color: #0072c6;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+  background-color: #6400e4;
 }
 
 .plus-button:active {
-  color: white
+  color: white;
 }
 
 .plus-button:disabled {
   background-color: #ededed;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .calendar-view {
-  text-align:center;
+  text-align: center;
 }
 
 .Range .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
-  background-color: rgb(227, 235, 250);
-  color: #0072c6;
+  background-color: #dabdff !important;
+  color: #6400e4;
 }
 
 .Range .DayPicker-Day {
@@ -249,16 +247,11 @@ tr:hover {
 }
 
 .Range .DayPicker-Day--start:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-  background-color: #0072c6;
+  background-color: #6400e4 !important;
 }
 
 .Range .DayPicker-Day--end:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-  background-color: #0072c6;
-}
-
-.DayPicker-TodayButton {
-  color: red;
-  font-size: 3rem;
+  background-color: #6400e4 !important;
 }
 
 .modal-bg {
@@ -280,31 +273,30 @@ tr:hover {
   padding: 3rem;
   display: flex;
   text-align: center;
-  box-shadow: 0px 0px 4px rgba(0,0,0,0.6);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
 }
-
-.modal-content h3{
+.modal-content h3 {
   margin-bottom: 2rem;
-  text-align: left
+  text-align: left;
 }
 
-.modal-content input:nth-of-type(-n+2){
+.modal-content input:nth-of-type(-n+2) {
   display: inline-block;
   width: 10rem;
   text-align: center;
 }
 
-.modal-content input:nth-of-type(1){
-  float:left;
+.modal-content input:nth-of-type(1) {
+  float: left;
 }
 
-.modal-content input:nth-of-type(2){
-  float:right;
+.modal-content input:nth-of-type(2) {
+  float: right;
 }
 
 .modal-content textarea {
   display: block;
-  float:right;
+  float: right;
   width: 100%;
   height: 5rem;
   margin-top: 1rem;
@@ -319,15 +311,19 @@ tr:hover {
 }
 
 .modal-content button:nth-of-type(1) {
-  background-color: #0072c6;
+  background-color: #6400e4;
   color: white;
+}
+.modal-content button:nth-of-type(1):hover {
+  background-color: #7d18ff;
 }
 
 .modal-content button:nth-of-type(2) {
   background-color: white;
   color: black;
 }
-/*animation: spin infinite 10s linear;*/
+
+/*animation: spin infinite 10s linear */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -336,3 +332,5 @@ tr:hover {
     transform: rotate(360deg);
   }
 }
+
+/*# sourceMappingURL=style.css.map */

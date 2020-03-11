@@ -42,7 +42,7 @@ if(process.env.NODE_ENV === "production") {
   });
 }
 
-Mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017", { useNewUrlParser: true });
+Mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:inMnDl8YFGKU0XKQ@cluster0-caapu.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 // START SERVER
 app.listen(PORT, () => {

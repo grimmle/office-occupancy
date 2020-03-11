@@ -51,21 +51,23 @@ export default class FilterBar extends React.Component {
   render() {
     return (
       <div id="filterBar">
-        <h3>Filter</h3>
         <div>
-          <input type="checkbox"
-            name="r"
-            checked={this.state.unreservedIsChecked}
-            onChange={this.toggleChange} /> <label>frei</label>
+          <h3>Filter</h3>
+          <div>
+            <input type="checkbox"
+              name="r"
+              checked={this.state.unreservedIsChecked}
+              onChange={this.toggleChange} /> <label>frei</label>
+          </div>
+          <div>
+            <input type="checkbox"
+              name="pc"
+              checked={this.state.hasPCIsChecked}
+              onChange={this.toggleChange}
+              /> <label>mit PC</label>
+          </div>
+          <button className="reset" onClick={this.handleResetFilter}>Zurücksetzen</button>
         </div>
-        <div>
-          <input type="checkbox"
-            name="pc"
-            checked={this.state.hasPCIsChecked}
-            onChange={this.toggleChange}
-          /> <label>mit PC</label>
-        </div>
-        <button className="reset" onClick={this.handleResetFilter}><label>Zurücksetzen</label></button>
       </div>
     );
   }

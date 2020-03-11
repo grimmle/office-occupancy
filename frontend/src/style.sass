@@ -1,0 +1,281 @@
+$purple: #6400e4
+$green: #00e464
+// #34b3a0
+$red: #e46400
+// #fc4472
+
+*
+  box-sizing: border-box
+
+h1
+  font-size: calc(1.2rem + 1vw)
+
+h2
+  font-size: calc(1rem + 1vw)
+
+h3
+  font-size: calc(0.8rem + 1vw)
+
+p, label, td, th
+  font-size: calc(0.5rem + 0.5vw)
+
+html, body
+  overflow-x: hidden
+
+button:hover
+  cursor: pointer
+
+#app
+  margin: auto
+  max-width: 1200px
+
+#header
+  margin: 0 -995rem
+  padding: 0 999rem
+  background-color: $purple
+  height: calc(60px + 1vw)
+  overflow: hidden
+  display: flex
+  align-items: center
+  justify-content: space-between
+  h1
+    color: white
+    margin: 0
+    padding: 0
+    width: 34%
+  form
+    display: flex
+    button
+      background-color: lightgrey
+      padding: 1px 5px
+      border: none
+      font-size: 1.3rem
+      border-top-right-radius: 5px
+      border-bottom-right-radius: 5px
+      line-height: 2rem
+      cursor: pointer
+      &:hover
+        background-color: darkgrey
+      &:active
+        color: white
+
+//hamburger menu
+#header>button
+  margin-left: 50px
+  padding: 0
+  border: none
+  background-color: transparent
+  font-size: 2rem
+  color: white
+
+#header>button:hover
+  color: lightgrey
+
+.searchBar
+  width: 100%
+  background-color: white
+  border: none
+  font-size: 1rem
+  border-top-left-radius: 5px
+  border-bottom-left-radius: 5px
+  line-height: 2rem
+  padding-left: 5px
+  padding-right: 5px
+
+#filterBar
+  height: calc(40px + 1vw)
+  background-color: white
+  margin: 0 -995rem
+  padding: 10px 999rem
+  overflow: hidden
+  box-shadow: 0px 5px 10px -10px rgba(0,0,0,0.8)
+  &>div
+    width: 50%
+    display: flex
+    align-items: center
+    justify-content: space-between
+  h3
+    margin: 0 20px 0 0
+  label
+    margin: 0
+    font-variant: small-caps
+  div
+    padding-right: 10px
+
+input[type="checkbox"]
+  border: 1px solid black
+  border-radius: 0px
+
+.reset
+  border: none
+  background: #ededed
+  color: black
+  cursor: pointer
+  border-radius: 5px
+  float: right
+
+.bm-menu
+  background: $purple
+  font-size: 1.2rem
+  padding: 2.5rem 1.5rem 0
+
+.bm-item
+  color: white
+  text-align: center
+  padding: 1.8rem 0
+  &:hover
+    color: lightgrey
+    text-decoration: none
+
+.bm-overlay
+  background: transparent
+  margin: 0 -50rem
+  width: 200% !important
+
+.workplace-list
+  margin: auto
+  padding: 10px
+  padding-bottom: 20px
+  overflow: hidden
+
+table
+  border-collapse: collapse
+  width: 100%
+
+th
+  background-color: #d3d3d3
+  border-left: 6px solid #d3d3d3
+
+th, td
+  height: 50px
+  padding: 0 15px
+  text-align: left
+  border-bottom: 1px solid #d3d3d3
+  box-sizing: border-box
+
+tr:hover
+  background-color: #fafafa
+
+.workplace-reserved
+  border-left: 6px solid $red
+
+.workplace-unreserved
+  border-left: 6px solid $green
+
+#workplace-selected
+  background-color: #ededed
+
+.button-container
+  position: fixed
+  left: calc(90vw)
+  top: 85%
+
+.plus-button
+  width: 70px
+  height: 70px
+  font-size: 3rem
+  border-radius: 50%
+  border: none
+  margin: 4px
+  display: inline-block
+  line-height: 100%
+  color: white
+  background-color: $purple
+
+.plus-button::before
+  margin: auto
+  font-size: 5.5rem
+  content: "+"
+
+.plus-button:enabled:hover
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.6)
+  background-color: $purple
+
+.plus-button:active
+  color: white
+
+.plus-button:disabled
+  background-color: #ededed
+  color: rgba(0,0,0,0.5)
+
+.calendar-view
+  text-align: center
+
+.Range .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside)
+  background-color: #dabdff !important
+  color: $purple
+
+.Range .DayPicker-Day
+  border-radius: 0 !important
+
+.Range .DayPicker-Day--start:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside)
+  background-color: $purple !important
+
+.Range .DayPicker-Day--end:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside)
+  background-color: $purple !important
+
+.modal-bg
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background-color: rgba(0, 0, 0, 0.3)
+  padding: 5rem
+
+.modal-content
+  background-color: white
+  border-radius: 5px
+  max-width: 600px
+  min-height: 300px
+  margin: auto
+  padding: 3rem
+  display: flex
+  text-align: center
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.6)
+  h3
+    margin-bottom: 2rem
+    text-align: left
+
+.modal-content input:nth-of-type(-n+2)
+  display: inline-block
+  width: 10rem
+  text-align: center
+
+.modal-content input:nth-of-type(1)
+  float: left
+
+.modal-content input:nth-of-type(2)
+  float: right
+
+.modal-content textarea
+  display: block
+  float: right
+  width: 100%
+  height: 5rem
+  margin-top: 1rem
+  max-height: 20rem
+
+.modal-content button:nth-of-type(-n+2)
+  float: right
+  margin: 1rem 0 1rem 1rem
+  padding: 5px 20px
+  border: none
+
+.modal-content button:nth-of-type(1)
+  background-color: $purple
+  color: white
+  &:hover
+    background-color: lighten($purple, 10%)
+
+.modal-content button:nth-of-type(2)
+  background-color: white
+  color: black
+
+/*animation: spin infinite 10s linear */
+@keyframes spin
+  from
+    transform: rotate(0deg)
+
+  to
+    transform: rotate(360deg)
