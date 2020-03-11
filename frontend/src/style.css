@@ -11,7 +11,7 @@ h2 {
 }
 
 h3 {
-  font-size: calc(0.8rem + 1vw);
+  font-size: calc(0.8rem + 0.5vw);
 }
 
 p, label, td, th {
@@ -98,12 +98,13 @@ button:hover {
   margin: 0 -995rem;
   padding: 10px 999rem;
   overflow: hidden;
+  display: flex;
+  align-items: center;
   box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.8);
 }
 #filterBar > div {
   width: 50%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 #filterBar h3 {
@@ -116,10 +117,21 @@ button:hover {
 #filterBar div {
   padding-right: 10px;
 }
-
-input[type=checkbox] {
-  border: 1px solid black;
-  border-radius: 0px;
+#filterBar input[type=checkbox], #filterBar input[type=checkbox]:focus, #filterBar input[type=checkbox]:active {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border-radius: 0;
+  border: 2px solid #6400e4;
+  padding: 3px;
+  width: 1.1rem;
+  height: 1.1rem;
+  vertical-align: sub;
+  line-height: 1.1rem;
+  background-clip: content-box;
+}
+#filterBar input[type=checkbox]:checked {
+  background-color: #6400e4;
 }
 
 .reset {
@@ -161,6 +173,7 @@ input[type=checkbox] {
 }
 
 table {
+  table-layout: fixed;
   border-collapse: collapse;
   width: 100%;
 }

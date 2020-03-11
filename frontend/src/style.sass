@@ -14,7 +14,7 @@ h2
   font-size: calc(1rem + 1vw)
 
 h3
-  font-size: calc(0.8rem + 1vw)
+  font-size: calc(0.8rem + 0.5vw)
 
 p, label, td, th
   font-size: calc(0.5rem + 0.5vw)
@@ -88,11 +88,12 @@ button:hover
   margin: 0 -995rem
   padding: 10px 999rem
   overflow: hidden
+  display: flex
+  align-items: center
   box-shadow: 0px 5px 10px -10px rgba(0,0,0,0.8)
-  &>div
+  >div
     width: 50%
     display: flex
-    align-items: center
     justify-content: space-between
   h3
     margin: 0 20px 0 0
@@ -102,9 +103,20 @@ button:hover
   div
     padding-right: 10px
 
-input[type="checkbox"]
-  border: 1px solid black
-  border-radius: 0px
+  input[type=checkbox], input[type=checkbox]:focus, input[type=checkbox]:active
+    -webkit-appearance: none
+    -moz-appearance: none
+    outline: none
+    border-radius: 0
+    border: 2px solid $purple
+    padding: 3px
+    width: 1.1rem
+    height: 1.1rem
+    vertical-align: sub
+    line-height: 1.1rem
+    background-clip: content-box
+  input[type=checkbox]:checked
+    background-color: $purple
 
 .reset
   border: none
@@ -139,6 +151,7 @@ input[type="checkbox"]
   overflow: hidden
 
 table
+  table-layout: fixed
   border-collapse: collapse
   width: 100%
 
