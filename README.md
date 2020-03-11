@@ -75,7 +75,7 @@ stellt einen Mitarbeiter dar. Ein Mitarbeiter bekommt bei der Erstellung automat
 
 	module.exports = mongoose.model("Employee", Employee);
 
-## 2. Routen
+## 3. Routen
 
 Es gibt für die beiden Datenmodelle je eine Route um REST Aufrufe daran auszuführen:
 
