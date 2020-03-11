@@ -1,5 +1,3 @@
-const config = require("./config.json");
-
 const Express = require("express");
 const BodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
@@ -35,6 +33,8 @@ if(process.env.NODE_ENV === "production") {
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
   });
+} else {
+  const config = require("./config.json");
 }
 
 Mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:" + config.mongopw + "@cluster0-caapu.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
