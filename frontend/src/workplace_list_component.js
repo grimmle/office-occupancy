@@ -80,7 +80,8 @@ export default class WorkplaceListComponent extends React.Component {
 
   // called whenever a prop is updated
   componentDidUpdate(prevProps) {
-    if((this.props.startDate !== prevProps.startDate) ||
+    if((this.props.eid !== prevProps.eid) ||
+    (this.props.startDate !== prevProps.startDate) ||
     (this.props.endDate !== prevProps.endDate) ||
     (this.props.isReserved !== prevProps.isReserved) ||
     (this.props.hasPC !== prevProps.hasPC) ||
