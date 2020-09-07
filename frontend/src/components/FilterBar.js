@@ -42,23 +42,28 @@ export default function FilterBar(props){
 
   return (
     <div id="filterBar">
+      <h3>Filter</h3>
       <div>
-        <h3>Filter</h3>
-        <div>
-          <input type="checkbox"
-            name="r"
-            checked={unreservedIsChecked}
-            onChange={toggleChange} /> <label>frei</label>
-        </div>
-        <div>
-          <input type="checkbox"
-            name="pc"
-            checked={hasPCIsChecked}
-            onChange={toggleChange}
-            /> <label>mit PC</label>
-        </div>
-        <button className="reset" onClick={handleResetFilter}>Zurücksetzen</button>
+        <input
+          type="checkbox"
+          name="r"
+          checked={unreservedIsChecked}
+          onChange={toggleChange}
+        />{" "}
+        <label>frei</label>
       </div>
+      <div>
+        <input
+          type="checkbox"
+          name="pc"
+          checked={hasPCIsChecked}
+          onChange={toggleChange}
+        />{" "}
+        <label>mit PC</label>
+      </div>
+      <button className="reset" onClick={handleResetFilter}>
+        zurücksetzen
+      </button>
     </div>
   );
 }

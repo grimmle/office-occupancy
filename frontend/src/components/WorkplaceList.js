@@ -119,8 +119,7 @@ export default function WorkplaceListComponent(props) {
       var name = "workplace-unreserved";
       for (var j = 0; j < c.reservations.length; j++) {
         // already found a reservation in that range
-        if (startDate !== "-" && endDate !== "-") {
-        }
+        if (startDate !== "-" && endDate !== "-") continue;
         // look for a reservation with overlapping dates, information of the first one found will be displayed
         else if (
           (moment.utc(c.reservations[j].startDate) <=
@@ -158,10 +157,7 @@ export default function WorkplaceListComponent(props) {
           var yy = end.getFullYear();
           endDate = dd + "." + mm + "." + yy;
 
-          employee =
-            c.reservations[j].employee.lastName +
-            ", " +
-            c.reservations[j].employee.firstName;
+          employee = c.reservations[j].employee.lastName + ", " + c.reservations[j].employee.firstName;
         }
       }
       list.push(

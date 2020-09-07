@@ -76,6 +76,12 @@ button:hover {
   cursor: pointer;
   color: #6400e4;
 }
+#header form button:hover {
+  color: lightgrey;
+}
+#header form button:active {
+  color: lightgrey;
+}
 
 #header > button {
   margin-left: 50px;
@@ -87,18 +93,18 @@ button:hover {
 }
 
 #filterBar {
-  height: calc(40px + 1vw);
+  height: 50px;
+  width: 66%;
+  min-width: 350px;
+  max-width: 800px;
   background-color: white;
-  margin: 0 -995rem;
-  padding: 10px 999rem;
-  overflow: hidden;
+  margin: 25px auto;
+  padding: 10px 20px;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.8);
-}
-#filterBar > div {
-  width: 50%;
-  display: flex;
+  box-shadow: 4px 4px 8px #c4c4c4, -4px -4px 8px #ffffff;
+  border-radius: 20px;
   justify-content: space-between;
 }
 #filterBar h3 {
@@ -349,9 +355,6 @@ tr:hover {
 }
 @media (max-width: 650px) {
   /*mobile view*/
-  body {
-    background-color: red;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
