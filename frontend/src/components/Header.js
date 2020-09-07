@@ -1,70 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { slide as Menu } from 'react-burger-menu';
 import '../style.css';
 
-export default class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      menuOpen: false,
-      searchText: ""};
+export default function Header(props) {
+
+    const [menuOpen, setMenuOpen] = useState(false)
+    const [searchText, setSearchtext] = useState("")
+
+    const closeMenu = () => {
+      setMenuOpen(false)
     }
 
-    handleStateChange(state) {
-      this.setState({ menuOpen: state.isOpen})
+    const toggleMenu = () => {
+      setMenuOpen(!menuOpen)
     }
 
-    closeMenu() {
-      this.setState({ menuOpen: false})
+    const handleSearchChange = (e) => {
+      setSearchtext(e.target.value)
     }
 
-    toggleMenu() {
-      this.setState(state => ({ menuOpen: !state.menuOpen}));
-    }
-
-    handleSearchChange(e) {
-      this.setState({searchText: e.target.value});
-    }
-
-    submitSearch = (e) => {
+    const submitSearch = (e) => {
       e.preventDefault();
-      this.props.updateSearch(this.state.searchText);
+      props.updateSearch(searchText);
     }
 
-    render() {
-      // icons for burger-menu and filter are 'fontawesome'-classes
-      return (
-        <div>
-          <div id="header">
-            <h1>Raumbelegung</h1>
-            <form onSubmit={this.submitSearch} onKeyUp={this.handleKeyUp}>
-              <input
-                className="searchBar"
-                type="text"
-                placeholder="Raumsuche..."
-                value={this.state.searchText}
-                onChange={(e) => this.handleSearchChange(e)}
-              />
-              <button type="submit">
-                <i className="fa fa-search"></i>
-              </button>
-            </form>
-            <button onClick={() => this.toggleMenu()}>
-              <i className="fas fa-bars"></i>
+    // icons for burger-menu and filter are 'fontawesome'-classes
+    return (
+      <div>
+        <div id="header">
+          <h1>Raumbelegung</h1>
+          <form onSubmit={submitSearch}>
+            <input
+              className="searchBar"
+              type="text"
+              placeholder="Raumsuche..."
+              value={searchText}
+              onChange={(e) => handleSearchChange(e)}
+            />
+            <button type="submit">
+              <i className="fa fa-search"></i>
             </button>
-          </div>
-          <Menu
-            right
-            isOpen={this.state.menuOpen}
-            onStateChange={(state) => this.handleStateChange(state)}
-            customBurgerIcon={false}
-            disableAutoFocus
-          >
-            <button onClick={() => this.closeMenu()}>Übersicht</button>
-            <button onClick={() => this.closeMenu()}>Belegungen</button>
-            <button onClick={() => this.closeMenu()}>Profil</button>
-          </Menu>
+          </form>
+          <button onClick={() => toggleMenu()}>
+            <i className="fas fa-bars"></i>
+          </button>
         </div>
-      );
-    }
+        <Menu
+          right
+          isOpen={menuOpen}
+          onStateChange={() => setMenuOpen(menuOpen)}
+          customBurgerIcon={false}
+          disableAutoFocus
+        >
+          <button onClick={() => closeMenu()}>Übersicht</button>
+          <button onClick={() => closeMenu()}>Belegungen</button>
+          <button onClick={() => closeMenu()}>Profil</button>
+        </Menu>
+      </div>
+    );
   }
