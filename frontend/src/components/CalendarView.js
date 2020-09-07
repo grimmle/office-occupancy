@@ -1,11 +1,10 @@
 import React from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import MomentLocaleUtils from 'react-day-picker/moment';
-import moment from 'moment';
 import 'moment/locale/de';
 
 import 'react-day-picker/lib/style.css';
-import './style.css';
+import '../style.css';
 
 export default class CalendarView extends React.Component {
   // mostly the same as https://react-day-picker.js.org/examples/selected-range-enter

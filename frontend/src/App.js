@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router} from 'react-router-dom';
 import moment from 'moment';
+import { BrowserRouter as Router} from 'react-router-dom';
 
-import Header from './header';
-import FilterBar from './filter_bar';
-import WorkplaceListComponent from './workplace_list_component';
-import NewReservationModal from './new_reservation_modal';
-import CalendarView from './calendar_view';
+import Header from "./components/Header";
+import FilterBar from "./components/FilterBar";
+import WorkplaceListComponent from './components/WorkplaceList';
+import NewReservationModal from "./components/NewReservationModal";
+import CalendarView from "./components/CalendarView";
 
 import './style.css';
 

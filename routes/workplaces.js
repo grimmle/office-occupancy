@@ -12,6 +12,7 @@ workplaces.route("")
   var date = {};
   var sort = {};
   // FILTERING
+  if(req.query.eid !== undefined) filter.eid = req.query.eid;
   if(req.query.hasPC !== undefined) filter.hasPC = req.query.hasPC;
   if(req.query.location !== undefined) filter.location = req.query.location;
   if(req.query.search !== undefined) filter._id = { $regex: req.query.search, $options: "i" };
@@ -29,7 +30,6 @@ workplaces.route("")
     // DEFAULT SORT - unreserved workplaces ascending, id ascending
     sort["_id"] = "1";
     sort["reservations"] = "1";
-
   }
   console.log("DATE: ", date);
   console.log("FILTER: ", filter);

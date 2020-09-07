@@ -22,6 +22,10 @@ html, body {
   overflow-x: hidden;
 }
 
+button, input {
+  outline: none;
+}
+
 button:hover {
   cursor: pointer;
 }
@@ -49,22 +53,34 @@ button:hover {
 }
 #header form {
   display: flex;
+  width: 33%;
+}
+#header form .searchBar {
+  width: 100%;
+  background-color: white;
+  border: none;
+  font-size: 1rem;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  line-height: 2rem;
+  padding-left: 10px;
 }
 #header form button {
-  background-color: lightgrey;
-  padding: 1px 5px;
+  background-color: white;
+  padding: 1px 10px;
   border: none;
   font-size: 1.3rem;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   line-height: 2rem;
   cursor: pointer;
+  color: #6400e4;
 }
 #header form button:hover {
-  background-color: darkgrey;
+  color: lightgrey;
 }
 #header form button:active {
-  color: white;
+  color: lightgrey;
 }
 
 #header > button {
@@ -76,35 +92,19 @@ button:hover {
   color: white;
 }
 
-#header > button:hover {
-  color: lightgrey;
-}
-
-.searchBar {
-  width: 100%;
-  background-color: white;
-  border: none;
-  font-size: 1rem;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  line-height: 2rem;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
 #filterBar {
-  height: calc(40px + 1vw);
+  height: 50px;
+  width: 66%;
+  min-width: 350px;
+  max-width: 800px;
   background-color: white;
-  margin: 0 -995rem;
-  padding: 10px 999rem;
-  overflow: hidden;
+  margin: 25px auto;
+  padding: 10px 20px;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.8);
-}
-#filterBar > div {
-  width: 50%;
-  display: flex;
+  box-shadow: 4px 4px 8px #c4c4c4, -4px -4px 8px #ffffff;
+  border-radius: 20px;
   justify-content: space-between;
 }
 #filterBar h3 {
@@ -151,7 +151,10 @@ button:hover {
 
 .bm-item {
   color: white;
+  border: none;
+  background: none;
   text-align: center;
+  width: 100%;
   padding: 1.8rem 0;
 }
 .bm-item:hover {
@@ -177,10 +180,15 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+table tr:first-of-type th:first-of-type {
+  border-top-left-radius: 20px;
+}
+table tr:first-of-type th:last-of-type {
+  border-top-right-radius: 20px;
+}
 
 th {
   background-color: #d3d3d3;
-  border-left: 6px solid #d3d3d3;
 }
 
 th, td {
@@ -196,11 +204,11 @@ tr:hover {
 }
 
 .workplace-reserved {
-  border-left: 6px solid #e46400;
+  box-shadow: inset 7px 0 0 #e46400;
 }
 
 .workplace-unreserved {
-  border-left: 6px solid #00e464;
+  box-shadow: inset 7px 0 0 #00e464;
 }
 
 #workplace-selected {
@@ -279,7 +287,7 @@ tr:hover {
 
 .modal-content {
   background-color: white;
-  border-radius: 5px;
+  border-radius: 25px;
   max-width: 600px;
   min-height: 300px;
   margin: auto;
@@ -344,6 +352,9 @@ tr:hover {
   to {
     transform: rotate(360deg);
   }
+}
+@media (max-width: 650px) {
+  /*mobile view*/
 }
 
 /*# sourceMappingURL=style.css.map */
