@@ -156,7 +156,7 @@ export default function WorkplaceListComponent(props) {
           var mm = end.getMonth() + 1;
           var yy = end.getFullYear();
           endDate = dd + "." + mm + "." + yy;
-
+          
           employee = c.reservations[j].employee.lastName + ", " + c.reservations[j].employee.firstName;
         }
       }
