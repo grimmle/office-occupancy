@@ -27,6 +27,7 @@ app.use(Logger('dev'));
 app.use("/workplaces", route_workplaces);
 app.use("/employees", route_employees);
 
+let config;
 if(process.env.NODE_ENV === "production") {
   app.use(Express.static("frontend/build"));
 
@@ -34,10 +35,10 @@ if(process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
   });
 } else {
-  const config = require("./config.json");
+  config = require("./config");
 }
 
-Mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:" + config.mongopw + "@cluster0-caapu.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
+Mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:" + config.mongopw + "@cluster0-caapu.mongodb.net/db?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 // START SERVER
 app.listen(PORT, () => {

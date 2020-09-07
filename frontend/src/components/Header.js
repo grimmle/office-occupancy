@@ -1,6 +1,6 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
-import './style.css';
+import '../style.css';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -38,23 +38,32 @@ export default class Header extends React.Component {
           <div id="header">
             <h1>Raumbelegung</h1>
             <form onSubmit={this.submitSearch} onKeyUp={this.handleKeyUp}>
-              <input className="searchBar" type="text" placeholder="Raumsuche..." value={this.state.searchText} onChange={(e) => this.handleSearchChange(e)} />
-              <button type="submit"><i className="fa fa-search"></i></button>
+              <input
+                className="searchBar"
+                type="text"
+                placeholder="Raumsuche..."
+                value={this.state.searchText}
+                onChange={(e) => this.handleSearchChange(e)}
+              />
+              <button type="submit">
+                <i className="fa fa-search"></i>
+              </button>
             </form>
-            <button onClick={ () => this.toggleMenu() }><i className="fas fa-bars"></i></button>
+            <button onClick={() => this.toggleMenu()}>
+              <i className="fas fa-bars"></i>
+            </button>
           </div>
           <Menu
             right
             isOpen={this.state.menuOpen}
             onStateChange={(state) => this.handleStateChange(state)}
-            customBurgerIcon={ false }
+            customBurgerIcon={false}
             disableAutoFocus
-            >
-            <a onClick={() => this.closeMenu()}>Übersicht</a>
-            <a onClick={() => this.closeMenu()}>Belegungen</a>
-            <a onClick={() => this.closeMenu()}>Profil</a>
+          >
+            <button onClick={() => this.closeMenu()}>Übersicht</button>
+            <button onClick={() => this.closeMenu()}>Belegungen</button>
+            <button onClick={() => this.closeMenu()}>Profil</button>
           </Menu>
-
         </div>
       );
     }

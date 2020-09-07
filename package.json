@@ -17,10 +17,11 @@
   "devDependencies": {},
   "scripts": {
     "start": "node app.js",
-    "backend": "nodemon app.js",
     "test": "mocha",
-    "frontend": "cd /frontend && npm run start",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "nodemon app.js",
+    "frontend": "cd frontend && npm run start",
+    "watch": "cd frontend/src/ && sass --watch .",
+    "dev": "concurrently \"npm:backend\" \"npm:watch\" \"npm:frontend\"",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "author": "Lennard Grimm",
