@@ -96,13 +96,9 @@ export default function WorkplaceListComponent(props) {
   };
 
   // open new_reservation_modal whenever '+'-button is clicked (change showModal prop to 'true')
-  const handleReserveButtonClick = () => {
-    var workplace = document
-      .getElementById("workplace-selected")
-      .getAttribute("workplaceid");
-    console.log(moment.utc(props.startDate).format());
-    console.log(moment.utc(props.endDate).format());
-    props.showModal(workplace);
+  const handleReserveButtonClick = (_id) => {
+    //var workplace = document.getElementById("workplace-selected").getAttribute("workplaceid");
+    props.showModal(_id);
   };
 
   // main function for building the displayed list of workplaces
@@ -158,6 +154,7 @@ export default function WorkplaceListComponent(props) {
           endDate = dd + "." + mm + "." + yy;
           
           employee = c.reservations[j].employee.lastName + ", " + c.reservations[j].employee.firstName;
+          var buttonIsDisabled = name === "workplace-reserved"
         }
       }
       list.push(
@@ -172,6 +169,7 @@ export default function WorkplaceListComponent(props) {
           <td> {startDate} </td>
           <td> {endDate} </td>
           <td> {employee} </td>
+          <td> <button type="button" className="add-button" onClick={(_id) => handleReserveButtonClick} disabled={buttonIsDisabled}>belegen</button> </td>
         </tr>
       );
     }
@@ -188,11 +186,12 @@ export default function WorkplaceListComponent(props) {
             <th>Startdatum</th>
             <th>Enddatum</th>
             <th>Mitarbeiter</th>
+            <th></th>
           </tr>
           {fillList()}
         </tbody>
       </table>
-      <div className="button-container">
+      {/* <div className="button-container">
         <button
           className="plus-button"
           title="Neue Belegung"
@@ -200,7 +199,7 @@ export default function WorkplaceListComponent(props) {
           onClick={handleReserveButtonClick}
           disabled={buttonDisabled}
         ></button>
-      </div>
+      </div> */}
     </div>
   );
 }

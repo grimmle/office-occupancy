@@ -46,12 +46,16 @@ export default function NewReservationModal(props) {
       <div className="modal">
         <form>
           <h3>Belegung für {props.workplace} hinzufügen</h3>
-          <input type="text" name="startdate" readOnly value={moment(props.startDate).format("YYYY/MM/DD")} />
-          bis
-          <input type="text" name="enddate" readOnly value={moment(props.endDate).format("YYYY/MM/DD")} />
-          <textarea name="note" placeholder="Notiz hinzufügen..." value={note} onChange={handleChange}/>
-          <button type="button" onClick={postNewReservation}>Belegen</button>
-          <button onClick={props.onClose}>Abbrechen</button>
+          <div className="flex">
+            <input type="text" name="startdate" readOnly value={moment(props.startDate).format("YYYY/MM/DD")} />
+            bis
+            <input type="text" name="enddate" readOnly value={moment(props.endDate).format("YYYY/MM/DD")} />
+          </div>
+          <textarea name="note" placeholder="Notiz hinzufügen..." value={note} onChange={handleChange}/>          
+          <div className="flex right">
+            <button type="button" onClick={props.onClose}>Abbrechen</button>
+            <button type="button" onClick={postNewReservation}>Belegen</button>
+          </div>
         </form>
       </div>
     </div>
