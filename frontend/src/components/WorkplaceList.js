@@ -84,6 +84,7 @@ export default function WorkplaceListComponent(props) {
       var endDate = "-";
       var employee = "-";
       var name = "workplace-unreserved";
+      var isDisabled = false;
       for (var j = 0; j < c.reservations.length; j++) {
         // already found a reservation in that range
         if (startDate !== "-" && endDate !== "-") continue;
@@ -125,7 +126,7 @@ export default function WorkplaceListComponent(props) {
           endDate = dd + "." + mm + "." + yy;
           
           employee = c.reservations[j].employee.lastName + ", " + c.reservations[j].employee.firstName;
-          var buttonIsDisabled = name === "workplace-reserved"
+          if(name === "workplace-reserved") isDisabled = true
         }
       }
       list.push(
@@ -139,7 +140,7 @@ export default function WorkplaceListComponent(props) {
           <td> {startDate} </td>
           <td> {endDate} </td>
           <td> {employee} </td>
-          <td> <button type="button" className="add-button" onClick={() => handleReserveButtonClick(_id)} disabled={buttonIsDisabled}>belegen</button> </td>
+          <td> <button type="button" className="add-button" onClick={() => handleReserveButtonClick(_id)} disabled={isDisabled}>belegen</button> </td>
         </tr>
       );
     }
