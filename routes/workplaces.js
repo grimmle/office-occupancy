@@ -24,21 +24,20 @@ workplaces.route("")
   if(req.query.sort !== undefined) {
     // QUERY SORT
     let [variable, order] = req.query.sort.split(":");
-    console.log(variable, order);
+    // console.log(variable, order);
     sort[variable.toString()] = order;
   } else {
     // DEFAULT SORT - unreserved workplaces ascending, id ascending
     sort["_id"] = "1";
     sort["reservations"] = "1";
   }
-  console.log("DATE: ", date);
-  console.log("FILTER: ", filter);
-  console.log("SORT: ", sort);
+  // console.log("DATE: ", date);
+  // console.log("FILTER: ", filter);
+  // console.log("SORT: ", sort);
   var query = filter;
   if(Object.keys(date).length !== 0) {
     //query = {$and: [{$or: [date, {reservations: { $exists: true, $eq: [] } }] }, filter]}
   }
-  console.log("QUERY: ", query)
   WorkplaceModel.find(query)
   .populate("reservations.employee")
   .sort(sort)
@@ -50,7 +49,7 @@ workplaces.route("")
         for(var j = 0; j < result[i].reservations.length; j++) {
           var start = moment.utc(result[i].reservations[j].startDate)
           var end = moment.utc(result[i].reservations[j].endDate)
-          if(start <= moment.utc(req.query.endDate) && end >= moment.utc(req.query.startDate)) {
+          if(start <= moment.utc(req.query.endDate, "YYYY MM DD") && end >= moment.utc(req.query.startDate, "YYYY MM DD")) {
             //console.log("correct")
           } else {
             //console.log("removed")
@@ -59,7 +58,6 @@ workplaces.route("")
           }
         }
       }
-      console.log("isReserved: " + req.query.isReserved)
       if(req.query.isReserved == "false") {
         for(var i = 0; i < result.length; i ++) {
           if(result[i].reservations.length !== 0) {
@@ -99,11 +97,9 @@ workplaces.route("/:id")
   WorkplaceModel.findOne({_id: req.params.id})
   .populate("employee")
   .then(result => {
-    console.log(result);
     if(result) res.send(result);
     else {
       res.json({err: "Not found!"});
-      console.log("Not found!");
     }
   })
   .catch(err => {
@@ -119,7 +115,7 @@ workplaces.route("/:id")
   if(req.body.hasPC !== undefined) update.hasPC = req.body.hasPC;
   if(req.body.location !== undefined) update.location = req.body.location;
   update = { $set: update };
-  console.log(update);
+  // console.log(update);
 
   WorkplaceModel.findOneAndUpdate( {_id: req.params.id}, update, {new: true} )
   .then(result => {
@@ -212,7 +208,6 @@ workplaces.route("/:id/reservations/:rid")
   WorkplaceModel.findOne({ _id: req.params.id, "reservations._id": req.params.rid})
   .then(result => {
     for(var i = 0; i < result.reservations.length; i++) {
-      console.log(req.params.rid)
       if(result.reservations[i]._id == req.params.rid) {
         res.send(result.reservations[i]);
       }
@@ -254,7 +249,6 @@ workplaces.route("/:id/reservations/:rid")
   WorkplaceModel.findOne({ _id: req.params.id, "reservations._id": req.params.rid})
   .then(result => {
     for(var i = 0; i < result.reservations.length; i++) {
-      console.log(req.params.rid)
       if(result.reservations[i]._id == req.params.rid) {
         result.reservations.splice(i, 1)
         result.save(function(err) {

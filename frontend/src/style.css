@@ -3,19 +3,19 @@
 }
 
 h1 {
-  font-size: calc(1.2rem + 1vw);
+  font-size: 1.8rem;
 }
 
 h2 {
-  font-size: calc(1rem + 1vw);
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: calc(0.8rem + 0.5vw);
+  font-size: 1.2rem;
 }
 
 p, label, td, th {
-  font-size: calc(0.5rem + 0.5vw);
+  font-size: 1rem;
 }
 
 html, body {
@@ -24,24 +24,30 @@ html, body {
   overflow-x: hidden;
 }
 
-button, input {
-  outline: none;
+button, input, i {
+  outline: none !important;
 }
 
 button:hover {
   cursor: pointer;
 }
 
-#app {
+#app #content {
   margin: auto;
-  max-width: 1200px;
+  max-width: 1300px;
+  padding: 0 10px;
+}
+
+.full-width {
+  width: 100%;
+  background-color: #6400e4;
 }
 
 #header {
-  margin: 0 -995rem;
-  padding: 0 998rem;
-  background-color: #6400e4;
-  height: calc(60px + 1vw);
+  margin: 0 auto;
+  max-width: 1300px;
+  padding: 0 10px;
+  height: 70px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -51,7 +57,6 @@ button:hover {
   color: white;
   margin: 0;
   padding: 0;
-  width: 34%;
 }
 #header form {
   display: flex;
@@ -86,7 +91,6 @@ button:hover {
 }
 
 #header > button {
-  margin-left: 50px;
   padding: 0;
   border: none;
   background-color: transparent;
@@ -96,17 +100,16 @@ button:hover {
 
 #filterBar {
   height: 50px;
-  width: 66%;
   min-width: 350px;
-  max-width: 800px;
+  max-width: 1280px;
   background-color: white;
-  margin: 25px auto;
+  margin: 20px auto;
   padding: 10px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   box-shadow: 4px 4px 8px #c4c4c4, -4px -4px 8px #ffffff;
-  border-radius: 20px;
+  border-radius: 15px;
   justify-content: space-between;
 }
 #filterBar h3 {
@@ -135,8 +138,7 @@ button:hover {
 #filterBar input[type=checkbox]:checked {
   background-color: #6400e4;
 }
-
-.reset {
+#filterBar .reset {
   border: none;
   background: #ededed;
   color: black;
@@ -172,7 +174,6 @@ button:hover {
 
 .workplace-list {
   margin: auto;
-  padding: 10px;
   padding-bottom: 20px;
   overflow: hidden;
 }
@@ -188,29 +189,35 @@ table tr:first-of-type th:first-of-type {
 table tr:first-of-type th:last-of-type {
   border-top-right-radius: 20px;
 }
-
-th {
+table th {
   background-color: #d3d3d3;
 }
-
-th, td {
+table th:nth-of-type(1) {
+  width: 15%;
+}
+table th:nth-of-type(2) {
+  width: 10%;
+}
+table td:last-of-type {
+  text-align: right;
+}
+table th, table td {
   height: 50px;
   padding: 0 15px;
   text-align: left;
   border-bottom: 1px solid #d3d3d3;
   box-sizing: border-box;
 }
-
-tr:hover {
+table tr:hover {
   background-color: #fafafa;
 }
 
 .workplace-reserved {
-  box-shadow: inset 7px 0 0 #e46400;
+  box-shadow: inset 7px 0 0 #e46400, inset -7px 0 0 #e46400;
 }
 
 .workplace-unreserved {
-  box-shadow: inset 7px 0 0 #00e464;
+  box-shadow: inset 7px 0 0 #00e464, inset -7px 0 0 #00e464;
 }
 
 #workplace-selected {
@@ -251,6 +258,23 @@ tr:hover {
   cursor: default;
 }
 
+.add-button {
+  outline: none;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background: #6400e4;
+  transition: background-color 0.2s ease;
+}
+.add-button:hover {
+  background-color: #7d18ff;
+}
+.add-button:disabled {
+  background-color: lightgrey;
+  cursor: default;
+}
+
 .calendar-view {
   text-align: center;
 }
@@ -260,16 +284,33 @@ tr:hover {
 }
 
 .DayPicker-Months {
-  height: 330px;
+  min-height: 330px;
+}
+
+.DayPicker:not(.DayPicker--interactionDisabled) .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+  background-color: #f0e4ff !important;
 }
 
 .Range .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
-  background-color: #dabdff !important;
-  color: #6400e4;
+  background-color: #d3b1ff !important;
+  color: #6400e4 !important;
 }
 
 .Range .DayPicker-Day {
   border-radius: 0 !important;
+}
+
+.DayPicker-TodayButton {
+  outline: none !important;
+  color: #6400e4 !important;
+  padding: 5px 10px !important;
+  border: 1px solid #6400e4 !important;
+  border-radius: 5px !important;
+  transition: background-color 0.2s ease;
+}
+
+.DayPicker-TodayButton:hover {
+  background-color: #f0e4ff !important;
 }
 
 .Range .DayPicker-Day--start:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
@@ -292,9 +333,9 @@ tr:hover {
 
 .modal {
   background-color: white;
-  border-radius: 25px;
-  max-width: 600px;
-  min-height: 300px;
+  border-radius: 20px;
+  max-width: 500px;
+  min-height: 350px;
   height: 0;
   margin: auto;
   padding: 3rem;
@@ -305,51 +346,49 @@ tr:hover {
   margin-bottom: 2rem;
   text-align: left;
 }
+.modal form {
+  width: 100%;
+}
+.modal form .flex {
+  display: flex;
+  justify-content: space-between;
+}
+.modal form .flex.right {
+  margin-top: 35px;
+  justify-content: flex-end;
+}
 .modal textarea {
   resize: none;
-}
-
-.modal input:nth-of-type(-n+2) {
-  display: inline-block;
-  width: 10rem;
-  text-align: center;
-}
-
-.modal input:nth-of-type(1) {
-  float: left;
-}
-
-.modal input:nth-of-type(2) {
-  float: right;
-}
-
-.modal textarea {
   display: block;
-  float: right;
   width: 100%;
   height: 5rem;
+  padding: 0 5px;
   margin-top: 1rem;
   max-height: 20rem;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
 }
-
-.modal button:nth-of-type(-n+2) {
-  float: right;
-  margin: 1rem 0 1rem 1rem;
+.modal input[type=text] {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  text-align: center;
+  width: 150px;
+}
+.modal button:first-of-type {
+  background-color: white;
   padding: 5px 20px;
   border: none;
 }
-
-.modal button:nth-of-type(1) {
-  background-color: #6400e4;
+.modal button:last-of-type {
   color: white;
+  background-color: #6400e4;
+  padding: 5px 10px;
+  border: 1px solid #6400e4;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
 }
-.modal button:nth-of-type(1):hover {
+.modal button:last-of-type:hover {
   background-color: #7d18ff;
-}
-
-.modal button:nth-of-type(2) {
-  background-color: white;
-  color: black;
 }
 
 /*animation: spin infinite 10s linear */

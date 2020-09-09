@@ -27,7 +27,6 @@ export default class App extends React.Component {
 
 // called when selected filters change
   updateFilter = (updatedFilter) => {
-    console.log(updatedFilter)
     this.setState(updatedFilter);
   }
 
@@ -59,21 +58,23 @@ export default class App extends React.Component {
           <Header
             updateSearch = {this.updateSearch}
             />
-          <FilterBar
-            updateFilter = {this.updateFilter}
-            />
-          <CalendarView
-            selectedDays = {this.selectedDays}
-            />
-          <WorkplaceListComponent
-            isReserved = {this.state.isReserved}
-            hasPC = {this.state.hasPC}
-            location = {this.state.location}
-            startDate = {this.state.startDate}
-            endDate = {this.state.endDate}
-            search = {this.state.search}
-            showModal = {this.toggleModal}
-            />
+          <div id="content">
+            <FilterBar
+              updateFilter = {this.updateFilter}
+              />
+            <CalendarView
+              selectedDays = {this.selectedDays}
+              />
+            <WorkplaceListComponent
+              isReserved = {this.state.isReserved}
+              hasPC = {this.state.hasPC}
+              location = {this.state.location}
+              startDate = {this.state.startDate}
+              endDate = {this.state.endDate}
+              search = {this.state.search}
+              showModal = {this.toggleModal}
+              />
+          </div>
           <NewReservationModal
             showModal = {this.state.showModal}
             onClose = {this.toggleModal}

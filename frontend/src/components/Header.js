@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { slide as Menu } from 'react-burger-menu';
 import '../style.css';
 
@@ -26,7 +26,7 @@ export default function Header(props) {
 
     // icons for burger-menu and filter are 'fontawesome'-classes
     return (
-      <div>
+      <div className="full-width">
         <div id="header">
           <h1>Raumbelegung</h1>
           <form onSubmit={submitSearch}>

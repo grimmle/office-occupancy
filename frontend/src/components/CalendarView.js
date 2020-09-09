@@ -69,7 +69,7 @@ export default class CalendarView extends React.Component {
   }
 
   render() {
-    const { from, to, enteredTo } = this.state;
+    const { from, enteredTo } = this.state;
     const modifiers = {
       start: from,
       end: enteredTo,
@@ -98,7 +98,7 @@ export default class CalendarView extends React.Component {
           modifierStyles = { modifierStyles }
           showWeekNumbers
           todayButton = "Heute"
-          numberOfMonths = { 3 }
+          numberOfMonths = { 4 }
           />
       </div>
     );
