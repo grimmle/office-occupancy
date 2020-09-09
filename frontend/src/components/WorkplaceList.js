@@ -11,7 +11,6 @@ const URL =
 
 export default function WorkplaceListComponent(props) {
   const [workplaces, setWorkplaces] = useState([]);
-  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   // on initial loading, a simple GET request is done to save all workplaces
   useEffect(() => {
@@ -54,12 +53,9 @@ export default function WorkplaceListComponent(props) {
         }
       }
       if (string) u = URL + "?" + string;
-      console.log(filter);
-      console.log(u);
       axios
         .get(u)
         .then((res) => {
-          resetSelectedRow();
           setWorkplaces(res.data);
         })
         .catch((err) => {
@@ -69,31 +65,6 @@ export default function WorkplaceListComponent(props) {
     filterChanged(filter);
   }, [props]);
 
-  
-
-  // remove id from selected table row (if there is one) and disables the '+'-button
-  const resetSelectedRow = () => {
-    var tr = document.querySelector("#workplace-selected");
-    if (tr !== null) tr.id = "";
-    setButtonDisabled(true);
-  };
-
-  const toggleSelectedRow = (e) => {
-    // if clicked row is already selected, deselect it
-    if (e.target.parentNode.id === "workplace-selected")
-      e.target.parentNode.id = "";
-    // else deselect whatever row was selected and select the clicked one
-    else {
-      var tr = document.getElementById("workplace-selected");
-      if (tr !== null) tr.id = "";
-      // can only select a row if the workplace is not reserved
-      if (e.target.parentNode.className !== "workplace-reserved")
-        e.target.parentNode.id = "workplace-selected";
-    }
-    if (document.getElementById("workplace-selected") !== null)
-      setButtonDisabled(false);
-    else setButtonDisabled(true);
-  };
 
   // open new_reservation_modal whenever '+'-button is clicked (change showModal prop to 'true')
   const handleReserveButtonClick = (_id) => {
@@ -162,14 +133,13 @@ export default function WorkplaceListComponent(props) {
           key={_id}
           workplaceid={_id}
           className={name}
-          onClick={toggleSelectedRow}
         >
           <td> {_id} </td>
           <td> {hasPC} </td>
           <td> {startDate} </td>
           <td> {endDate} </td>
           <td> {employee} </td>
-          <td> <button type="button" className="add-button" onClick={(_id) => handleReserveButtonClick} disabled={buttonIsDisabled}>belegen</button> </td>
+          <td> <button type="button" className="add-button" onClick={() => handleReserveButtonClick(_id)} disabled={buttonIsDisabled}>belegen</button> </td>
         </tr>
       );
     }

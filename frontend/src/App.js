@@ -27,7 +27,6 @@ export default class App extends React.Component {
 
 // called when selected filters change
   updateFilter = (updatedFilter) => {
-    console.log(updatedFilter)
     this.setState(updatedFilter);
   }
 

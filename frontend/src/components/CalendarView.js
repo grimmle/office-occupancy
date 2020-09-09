@@ -69,7 +69,7 @@ export default class CalendarView extends React.Component {
   }
 
   render() {
-    const { from, to, enteredTo } = this.state;
+    const { from, enteredTo } = this.state;
     const modifiers = {
       start: from,
       end: enteredTo,
