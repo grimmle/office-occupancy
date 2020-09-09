@@ -98,7 +98,7 @@ export default class CalendarView extends React.Component {
           modifierStyles = { modifierStyles }
           showWeekNumbers
           todayButton = "Heute"
-          numberOfMonths = { 3 }
+          numberOfMonths = { 4 }
           />
       </div>
     );
