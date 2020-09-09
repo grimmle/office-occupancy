@@ -26,7 +26,7 @@ export default function Header(props) {
 
     // icons for burger-menu and filter are 'fontawesome'-classes
     return (
-      <div>
+      <div className="full-width">
         <div id="header">
           <h1>Raumbelegung</h1>
           <form onSubmit={submitSearch}>

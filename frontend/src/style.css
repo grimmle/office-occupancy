@@ -32,19 +32,22 @@ button:hover {
   cursor: pointer;
 }
 
-#app {
+#app #content {
   margin: auto;
   max-width: 1300px;
+  padding: 0 10px;
 }
-#app #content {
-  margin: 0 10px;
+
+.full-width {
+  width: 100%;
+  background-color: #6400e4;
 }
 
 #header {
-  margin: 0 -995rem;
-  padding: 0 998rem;
-  background-color: #6400e4;
-  height: calc(60px + 1vw);
+  margin: 0 auto;
+  max-width: 1300px;
+  padding: 0 10px;
+  height: 70px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -100,9 +103,7 @@ button:hover {
   min-width: 350px;
   max-width: 1280px;
   background-color: white;
-  margin-right: 10px;
-  margin-left: 10px;
-  margin: 25px auto;
+  margin: 20px auto;
   padding: 10px 20px;
   display: flex;
   flex-direction: row;

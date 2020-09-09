@@ -38,7 +38,6 @@ workplaces.route("")
   if(Object.keys(date).length !== 0) {
     //query = {$and: [{$or: [date, {reservations: { $exists: true, $eq: [] } }] }, filter]}
   }
-  console.log("QUERY: ", query)
   WorkplaceModel.find(query)
   .populate("reservations.employee")
   .sort(sort)
