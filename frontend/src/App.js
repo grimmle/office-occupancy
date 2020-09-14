@@ -4,7 +4,7 @@ import { BrowserRouter as Router} from 'react-router-dom';
 
 import Header from "./components/Header";
 import FilterBar from "./components/FilterBar";
-import WorkplaceListComponent from './components/WorkplaceList';
+import WorkplaceList from './components/WorkplaceList';
 import NewReservationModal from "./components/NewReservationModal";
 import CalendarView from "./components/CalendarView";
 
@@ -65,7 +65,7 @@ export default class App extends React.Component {
             <CalendarView
               selectedDays = {this.selectedDays}
               />
-            <WorkplaceListComponent
+            <WorkplaceList
               isReserved = {this.state.isReserved}
               hasPC = {this.state.hasPC}
               location = {this.state.location}

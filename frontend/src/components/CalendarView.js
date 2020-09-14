@@ -93,6 +93,7 @@ export default class CalendarView extends React.Component {
           onDayClick = { this.handleDayClick }
           onDayMouseEnter = { this.handleDayMouseEnter }
           selectedDays = { selectedDays }
+          // eslint-disable-next-line
           disabledDays= { disabledDays, {daysOfWeek: [0, 6]} }
           modifiers = { modifiers }
           modifierStyles = { modifierStyles }

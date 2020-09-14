@@ -65,17 +65,14 @@ export default function WorkplaceListComponent(props) {
     filterChanged(filter);
   }, [props]);
 
-
-  // open new_reservation_modal whenever '+'-button is clicked (change showModal prop to 'true')
   const handleReserveButtonClick = (_id) => {
-    //var workplace = document.getElementById("workplace-selected").getAttribute("workplaceid");
     props.showModal(_id);
   };
 
   // main function for building the displayed list of workplaces
   const fillList = () => {
     var list = [];
-    for (var i = 0; i < workplaces.length; i++) {
+    workplaces.forEach((w, i) => {
       var c = workplaces[i];
       var _id = c._id;
       var hasPC = "nein";
@@ -140,10 +137,10 @@ export default function WorkplaceListComponent(props) {
           <td> {startDate} </td>
           <td> {endDate} </td>
           <td> {employee} </td>
-          <td> <button type="button" className="add-button" onClick={() => handleReserveButtonClick(_id)} disabled={isDisabled}>belegen</button> </td>
+          <td> <button type="button" className="add-button" onClick={() => handleReserveButtonClick(w._id)} disabled={isDisabled}>belegen</button> </td>
         </tr>
       );
-    }
+    });
     return list;
   };
 
