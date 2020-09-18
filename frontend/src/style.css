@@ -65,20 +65,26 @@ button:hover {
 #header form .searchBar {
   width: 100%;
   background-color: white;
-  border: none;
   font-size: 1rem;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 5px 5px 6px #5100b9, -5px -5px 6px #7700ff;
+}
+#header form .searchBar input {
+  width: 100%;
+  background: none;
+  border: none;
   line-height: 2rem;
   padding-left: 10px;
+  padding-right: 35px;
 }
 #header form button {
-  background-color: white;
+  position: absolute;
+  background: none;
   padding: 1px 10px;
   border: none;
   font-size: 1.3rem;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
   line-height: 2rem;
   cursor: pointer;
   color: #6400e4;

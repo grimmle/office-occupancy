@@ -30,16 +30,17 @@ export default function Header(props) {
         <div id="header">
           <h1>Raumbelegung</h1>
           <form onSubmit={submitSearch}>
-            <input
-              className="searchBar"
-              type="text"
-              placeholder="Raumsuche..."
-              value={searchText}
-              onChange={(e) => handleSearchChange(e)}
-            />
-            <button type="submit">
-              <i className="fa fa-search"></i>
-            </button>
+            <div className="searchBar">
+              <input
+                type="text"
+                placeholder="Raumsuche..."
+                value={searchText}
+                onChange={(e) => handleSearchChange(e)}
+              />
+              <button type="submit">
+                <i className="fa fa-search"></i>
+              </button>
+            </div>
           </form>
           <button onClick={() => toggleMenu()}>
             <i className="fas fa-bars"></i>
