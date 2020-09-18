@@ -74,6 +74,7 @@ export default class CalendarView extends React.Component {
       start: from,
       end: enteredTo,
       reserved: this.props.reservedDays,
+      //disabled: [ {before: new Date()}, {daysOfWeek: [0, 6]} ]
     };
     const modifierStyles = {
       reserved: {
@@ -94,7 +95,7 @@ export default class CalendarView extends React.Component {
           onDayMouseEnter = { this.handleDayMouseEnter }
           selectedDays = { selectedDays }
           // eslint-disable-next-line
-          disabledDays= { disabledDays, {daysOfWeek: [0, 6]} }
+          disabledDays= { {before: new Date()} }
           modifiers = { modifiers }
           modifierStyles = { modifierStyles }
           showWeekNumbers
